@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <style>
+            .r{
+                color:brown
+            }
+            .b{
+                color:aqua;
+
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="r">JS Workout Module</h1>
+        <p class="r">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique esse quis aperiam nobis. Culpa tenetur, ea quibusdam obcaecati architecto iure, molestias eveniet aut necessitatibus ullam autem delectus quas at. Minus.</p>
+        <p  class="r">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique esse quis aperiam nobis. Culpa tenetur, ea quibusdam obcaecati architecto iure, molestias eveniet aut necessitatibus ullam autem delectus quas at. Minus.</p>
+        <p  class="r">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique esse quis aperiam nobis. Culpa tenetur, ea quibusdam obcaecati architecto iure, molestias eveniet aut necessitatibus ullam autem delectus quas at. Minus.</p>
+        <p  class="r">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique esse quis aperiam nobis. Culpa tenetur, ea quibusdam obcaecati architecto iure, molestias eveniet aut necessitatibus ullam autem delectus quas at. Minus.</p>
+    <button>Click</button>
+    <script>
+        var btn = document.querySelector("button");
+        var para =document.querySelector("p");
+        para.onmouseover=function(){
+             var hs= document.querySelectorAll('p');
+             var len=hs.length;
+             console.log(hs);
+                var cl = [''];
+              for(let i=0;i<len;i++){
+                    console.log(cl[i]=hs[i].getAttribute('class'))
+              }             
+             for(let i=0;i<len;i++){
+                if(cl[i]=="r"){
+                    hs[i].classList.remove('r');
+                    hs[i].classList.add('b');
+
+                }
+                else{
+                    hs[i].classList.remove('b');
+                    hs[i].classList.add('r')
+                }
+             }
+            
+        }
+        btn.onclick=function()
+        { var hs= document.querySelector('h1');
+        var cl=hs.getAttribute("class");
+            if(cl=="r"){
+                hs.classList.remove('r');
+                hs.classList.add('b');
+
+            }
+            else{
+                 hs.classList.remove('b');
+                hs.classList.add('r')
+            }
+            
+        }
+    </script>
+    </body>
+</html>
