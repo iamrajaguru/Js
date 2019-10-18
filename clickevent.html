@@ -1,0 +1,53 @@
+<html>
+    <head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+        #border{
+            margin-top: 5%;
+            padding-top:5%;
+
+
+        }
+        .pad{
+             margin-top: 5%;
+            
+        }
+    /* #remove{
+        background-color:red;
+    } */
+    </style>
+    <body>
+        <div class="container">
+            <div id="border">
+            <input class="" type="text">
+            <button class="btn btn-success"id="btn">
+                Add+
+            </button>
+
+        </div>
+        </div>
+      
+
+
+        <script>
+            var but = document.querySelector('#btn');
+            but.onclick=function(){
+                var div= document.createElement('div');
+                div.innerHTML=generateDynamically();
+                document.getElementById("border").appendChild(div);
+            }
+            function generateDynamically(){
+                return '<input class="pad" type="text"><button class="btn btn-danger" onclick="removeItem(this)" >X</button>';
+            }
+            function removeItem(btn){
+                document.getElementById("border").removeChild(btn.parentNode);
+            }
+        </script>
+    </body>
+</html>
