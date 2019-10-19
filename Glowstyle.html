@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  background-color: black;
+  font-family: cursive;
+}
+
+.glow {
+  font-size: 40px;
+  color: #FFFF99;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 15px #FFFF66, 0 0 10px #FFFF66, 0 0 15px #FFFF66, 0 0 20px#FFFF66, 0 0 50px #FFFF66, 0 0 30px #FFFF66, 0 0 35px #FFFF66;
+  }
+  
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #FFFF00, 0 0 20px #FFFF00, 0 0 25px #FFFF00, 0 0 60px#FFFF00, 0 0 35px #FFFF00, 0 0 40px #FFFF00;
+  }
+}
+</style>
+</head>
+<body>
+
+<h1 class="glow">GLOWING TEXT</h1>
+     
+</body>
+</html> 

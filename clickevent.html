@@ -25,9 +25,12 @@
     <body>
         <div class="container">
             <div id="border">
-            <input class="" type="text">
+            <input class="txt" type="text">
             <button class="btn btn-success"id="btn">
                 Add+
+            </button>
+             <button class="btn btn-primary"id="btnRes">
+                Result
             </button>
 
         </div>
@@ -42,8 +45,24 @@
                 div.innerHTML=generateDynamically();
                 document.getElementById("border").appendChild(div);
             }
+
+              var result = document.querySelector('#btnRes');
+              result.onclick=function(){
+                  var num = document.querySelectorAll('.txt');
+                  console.log(num.length);
+                  var z='',s=[''];
+
+                  for(let i=0 ;i<num.length;i++){
+                      s[i]=num[i].value;
+                      z=z+s[i];
+                  }
+                  console.log(s);
+                   console.log(z);
+              }
+
+
             function generateDynamically(){
-                return '<input class="pad" type="text"><button class="btn btn-danger" onclick="removeItem(this)" >X</button>';
+                return '<input class="pad txt" type="text"><button class="btn btn-danger" onclick="removeItem(this)" >X</button>';
             }
             function removeItem(btn){
                 document.getElementById("border").removeChild(btn.parentNode);
