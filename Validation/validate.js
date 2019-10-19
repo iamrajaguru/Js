@@ -27,9 +27,24 @@ const userList = document.querySelector("#users");
 //Proper Working Code for alert
 const span = document.querySelector(".empty");
 const butn = document.querySelector(".btn");
+
+var title = document.querySelector("h1");
+console.log(localStorage.getItem("username"));
+
+if(!localStorage.getItem("username")){
+               var inp = nameInput.value; //console.log(nameInput.value) - getting name from inputfields
+              localStorage.setItem("username", inp);
+              title.textContent = "Welcome  " + inp;
+            }
+  else{
+   
+   var getName = localStorage.getItem("username");
+   title.textContent = "Welcome " + getName;
+
+  }            
+
 butn.onclick = function(e) {
   e.preventDefault();
-
   if (nameInput.value == "" || emailInput.value == "") {
     span.innerHTML = "<div class='msg'></div>";
     console.log(span);
@@ -38,17 +53,14 @@ butn.onclick = function(e) {
     msg.classList.add("error");
     setTimeout(() => msg.remove(), 5000);
   } else {
-    console.log(nameInput.value); //getting name from inputfields
-    var inp = nameInput.value;
-    var title = document.querySelector("h1");
-    localStorage.setItem("username", inp);
-    title.textContent = "Welcome " + inp;
-    const li = document.createElement("li");
-    li.appendChild(
-      document.createTextNode(`${nameInput.value} : ${emailInput.value}`)
-    );
-    userList.appendChild(li);
-    nameInput.value = "";
-    emailInput.value = "";
+              const li = document.createElement("li");
+              li.appendChild(
+                document.createTextNode(`${nameInput.value} : ${emailInput.value}`)
+              );
+              userList.appendChild(li);
+              nameInput.value = "";
+              emailInput.value = "";
+          // localStorage.clear();  
+          
   }
 };
