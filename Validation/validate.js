@@ -27,21 +27,20 @@ const userList = document.querySelector("#users");
 //Proper Working Code for alert
 const span = document.querySelector(".empty");
 const butn = document.querySelector(".btn");
-
 var title = document.querySelector("h1");
-console.log(localStorage.getItem("username"));
+ 
+if (!localStorage.getItem("username")) {
+  var inp = nameInput.value;
+  console.log(nameInput.value); // - getting name from inputfields
+  localStorage.setItem("username", inp);
+  title.textContent = "Welcome  " + inp;
+}else{
+  console.log(localStorage.getItem("username"));
+  var getName = localStorage.getItem("username");
+  title.textContent = "Welcome " + getName;
+}
 
-if(!localStorage.getItem("username")){
-               var inp = nameInput.value; //console.log(nameInput.value) - getting name from inputfields
-              localStorage.setItem("username", inp);
-              title.textContent = "Welcome  " + inp;
-            }
-  else{
    
-   var getName = localStorage.getItem("username");
-   title.textContent = "Welcome " + getName;
-
-  }            
 
 butn.onclick = function(e) {
   e.preventDefault();
@@ -52,7 +51,14 @@ butn.onclick = function(e) {
     msg.innerHTML = "Please Enter the Fields ";
     msg.classList.add("error");
     setTimeout(() => msg.remove(), 5000);
+    localStorage.clear();
   } else {
+            if (!localStorage.getItem("username")) {
+              var inp = nameInput.value;
+              console.log(nameInput.value); // - getting name from inputfields
+              localStorage.setItem("username", inp);
+              title.textContent = "Welcome  " + inp;
+            }
               const li = document.createElement("li");
               li.appendChild(
                 document.createTextNode(`${nameInput.value} : ${emailInput.value}`)
@@ -60,7 +66,9 @@ butn.onclick = function(e) {
               userList.appendChild(li);
               nameInput.value = "";
               emailInput.value = "";
-          // localStorage.clear();  
+              
+               
           
   }
 };
+
